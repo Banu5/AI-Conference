@@ -126,16 +126,16 @@ const Price = () => {
                             >
                                 {table.title}
                             </h2>
-                            <table className="w-full text-white text-lg md:text-xl border-separate border-spacing-0">
+                            <table className="w-full text-sm sm:text-base md:text-xl text-white border-separate border-spacing-0">
                                 <thead>
                                     <tr>
-                                        <th className="py-3 text-left font-bold" style={{ fontFamily: "'Anta', sans-serif" }}>
+                                        <th className="py-2 sm:py-3 text-left font-bold" style={{ fontFamily: "'Anta', sans-serif" }}>
                                             Registration Category
                                         </th>
-                                        <th className="py-3 text-left font-bold" style={{ fontFamily: "'Anta', sans-serif" }}>
+                                        <th className="py-2 sm:py-3 text-left font-bold" style={{ fontFamily: "'Anta', sans-serif" }}>
                                             Before 1st Feb 2026
                                         </th>
-                                        <th className="py-3 text-left font-bold" style={{ fontFamily: "'Anta', sans-serif" }}>
+                                        <th className="py-2 sm:py-3 text-left font-bold" style={{ fontFamily: "'Anta', sans-serif" }}>
                                             After 1st Feb 2026
                                         </th>
                                     </tr>
@@ -145,7 +145,7 @@ const Price = () => {
                                         <React.Fragment key={i}>
                                             <tr>
                                                 {row.map((cell, j) => (
-                                                    <td key={j} className="py-4 px-2 font-medium">
+                                                    <td key={j} className="py-2 sm:py-4 px-1 sm:px-2 font-medium break-words">
                                                         {cell}
                                                     </td>
                                                 ))}
@@ -166,7 +166,7 @@ const Price = () => {
             {/* Payment Methods Section */}
             <div
                 ref={paymentRef}
-                className="relative z-10 w-full max-w-5xl mx-auto mt-24 mb-24"
+                className="relative z-10 w-full max-w-5xl mx-auto mt-24 mb-1"
             >
                 <div className="flex flex-col md:flex-row bg-white/10 backdrop-blur-lg rounded-3xl shadow-xl border border-[#7f9cf5]/30 overflow-hidden">
                     {/* Left Side: Title & Features */}
@@ -196,47 +196,43 @@ const Price = () => {
                         </ul>
                     </div>
                     {/* Right Side: Payment Methods Grid */}
-                    <div className="flex-1 p-10 flex items-center justify-center">
-                        <div className="grid grid-cols-2 gap-6 w-full max-w-xs">
+                    <div className="flex-1 p-4 sm:p-8 flex items-center justify-center">
+                        <div className="grid grid-cols-2 gap-3 sm:gap-6 w-full max-w-xs">
                             {/* Cash */}
-                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-6">
-                                {/* Cash Icon */}
-                                <svg className="w-20 h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-3 sm:p-6">
+                                <svg className="w-10 h-10 sm:w-20 sm:h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
 									<rect x="3" y="7" width="18" height="10" rx="2" fill="#7f9cf5" fillOpacity="0.15"/>
 									<rect x="3" y="7" width="18" height="10" rx="2" stroke="#7f9cf5" strokeWidth="1.5"/>
 									<circle cx="12" cy="12" r="2.5" stroke="#7f9cf5" strokeWidth="1.5"/>
 								</svg>
-                                <span className="text-white font-semibold text-base mt-1">Cash</span>
+                                <span className="text-white font-semibold text-xs sm:text-base mt-1 text-center">Cash</span>
                             </div>
                             {/* Bank Draft */}
-                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-6">
-                                {/* Bank Icon */}
-                                <svg className="w-20 h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-3 sm:p-6">
+                                <svg className="w-10 h-10 sm:w-20 sm:h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
 									<rect x="5" y="10" width="14" height="7" rx="2" fill="#7f9cf5" fillOpacity="0.15"/>
 									<rect x="5" y="10" width="14" height="7" rx="2" stroke="#7f9cf5" strokeWidth="1.5"/>
 									<path d="M12 10V7M9 7h6" stroke="#7f9cf5" strokeWidth="1.5" strokeLinecap="round"/>
 								</svg>
-                                <span className="text-white font-semibold text-base mt-1">Bank Draft (Sri Lanka)</span>
+                                <span className="text-white font-semibold text-xs sm:text-base mt-1 text-center">Bank Draft (Sri Lanka)</span>
                             </div>
                             {/* Credit Card */}
-                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-6">
-                                {/* Credit Card Icon */}
-                                <svg className="w-20 h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-3 sm:p-6">
+                                <svg className="w-10 h-10 sm:w-20 sm:h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
 									<rect x="3" y="7" width="18" height="10" rx="2" fill="#7f9cf5" fillOpacity="0.15"/>
 									<rect x="3" y="7" width="18" height="10" rx="2" stroke="#7f9cf5" strokeWidth="1.5"/>
 									<rect x="7" y="15" width="4" height="2" rx="1" fill="#7f9cf5" />
 								</svg>
-                                <span className="text-white font-semibold text-base mt-1">Credit Card</span>
+                                <span className="text-white font-semibold text-xs sm:text-base mt-1 text-center">Credit Card</span>
                             </div>
                             {/* Cheques */}
-                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-6">
-                                {/* Cheque Icon */}
-                                <svg className="w-20 h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                            <div className="flex flex-col items-center justify-center bg-white/20 rounded-2xl shadow-md border border-[#7f9cf5]/20 p-3 sm:p-6">
+                                <svg className="w-10 h-10 sm:w-20 sm:h-20 mb-2 text-[#7f9cf5]" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
 									<rect x="4" y="8" width="16" height="8" rx="2" fill="#7f9cf5" fillOpacity="0.15"/>
 									<rect x="4" y="8" width="16" height="8" rx="2" stroke="#7f9cf5" strokeWidth="1.5"/>
 									<path d="M8 12h8M8 14h4" stroke="#7f9cf5" strokeWidth="1.5" strokeLinecap="round"/>
 								</svg>
-                                <span className="text-white font-semibold text-base mt-1">Cheques</span>
+                                <span className="text-white font-semibold text-xs sm:text-base mt-1 text-center">Cheques</span>
                             </div>
                         </div>
                     </div>
@@ -248,16 +244,16 @@ const Price = () => {
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 text-left">
                     Account Informations
                 </h3>
-                <div className="flex flex-col md:flex-row gap-8">
+                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
                     {/* Box 1 */}
-                    <div className="flex-1 bg-white/20 border border-[#7f9cf5]/30 rounded-2xl p-6 shadow-md min-w-[260px]">
+                    <div className="flex-1 bg-white/20 border border-[#7f9cf5]/30 rounded-2xl p-6 shadow-md min-w-0 w-full">
                         <div className="text-white text-base md:text-lg font-semibold mb-2">Account No: <span className="font-normal">057-1001-3001-5231</span></div>
                         <div className="text-white text-base md:text-lg font-semibold mb-2">Account Name: <span className="font-normal">ICSBE</span></div>
                         <div className="text-white text-base md:text-lg font-semibold mb-2">Bank: <span className="font-normal">People's Bank, Peradeniya</span></div>
                         <div className="text-white text-base md:text-lg font-semibold">Swift Code: <span className="font-normal">PSBKLKLX</span></div>
                     </div>
                     {/* Box 2 */}
-                    <div className="flex-1 bg-white/20 border border-[#7f9cf5]/30 rounded-2xl p-6 shadow-md min-w-[260px]">
+                    <div className="flex-1 bg-white/20 border border-[#7f9cf5]/30 rounded-2xl p-6 shadow-md min-w-0 w-full">
                         <div className="text-white text-base md:text-lg font-semibold mb-2">Account No: <span className="font-normal">005160000194</span></div>
                         <div className="text-white text-base md:text-lg font-semibold mb-2">Account Name: <span className="font-normal">ICSBE</span></div>
                         <div className="text-white text-base md:text-lg font-semibold mb-2">Bank: <span className="font-normal">Sampath Bank, Peradeniya</span></div>

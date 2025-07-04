@@ -74,11 +74,11 @@ const CallForPapers = () => {
           The full paper should not be more than 15 pages in length. Manuscripts should be submitted in Microsoft Word format (*.docx). Page sizes should be A4 & use Normal format for margin. The paper should follow the formatting guidelines strictly. The easiest way to achieve this is to use the provided template and change the text inside to reflect your paper content. Alternatively, format guidelines are given below, should you prefer to format the paper from scratch.
         </p>
 
-        {/* Download Boxes - 3 in a row, small, only topic, centered, no icon */}
-        <div className="flex flex-row gap-12 mb-10 w-full justify-center relative z-10">
+        {/* Download Boxes - Responsive grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10 w-full max-w-4xl mx-auto relative z-10">
           {downloadBoxes.map((item) => (
             <div
-              className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] w-[230px] h-[150px] flex items-center justify-center"
+              className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] w-full h-[150px] flex items-center justify-center"
               style={{
                 backgroundImage: `url(${item.backgroundUrl})`,
               }}
@@ -98,7 +98,7 @@ const CallForPapers = () => {
                 style={{ textDecoration: "none" }}
               >
                 <span
-                  className="text-white text-center font-bold text-lg md:text-xl px-2"
+                  className="text-white text-center font-bold text-base sm:text-lg md:text-xl px-2"
                   style={{ fontFamily: "'Anta', sans-serif" }}
                 >
                   {item.title}

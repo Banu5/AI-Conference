@@ -5,12 +5,15 @@ import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import gsap from "gsap";
 
 const Header = () => {
   const pathname = useLocation();
   const [openNavigation, setOpenNavigation] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const overlayRef = useRef(null);
+  const navLinksRef = useRef([]);
 
   const toggleNavigation = () => {
     if (openNavigation) {
@@ -28,6 +31,46 @@ const Header = () => {
     setOpenNavigation(false);
     setActiveDropdown(null);
   };
+
+  useEffect(() => {
+    if (openNavigation) {
+      gsap.fromTo(
+        overlayRef.current,
+        { opacity: 0, y: -40 },
+        { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+      );
+      gsap.fromTo(
+        navLinksRef.current,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          delay: 0.15,
+          ease: "power2.out",
+        }
+      );
+    } else if (overlayRef.current) {
+      gsap.to(overlayRef.current, {
+        opacity: 0,
+        y: -40,
+        duration: 0.3,
+        ease: "power2.in",
+        onComplete: () => {
+          setActiveDropdown(null);
+        },
+      });
+      gsap.to(navLinksRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 0.3,
+        stagger: 0.05,
+        ease: "power2.in",
+      });
+    }
+    // eslint-disable-next-line
+  }, [openNavigation]);
 
   return (
     <div
@@ -62,7 +105,7 @@ const Header = () => {
         <a className="block w-[8rem] xl:mr-8" href="#hero">
           <img src="/icon.png" width={80} height={20} alt="AI Conference" />
         </a>
-        <nav className="flex-1 flex justify-center items-center">
+        <nav className="flex-1 justify-center items-center hidden lg:flex">
           <div className="flex flex-row items-center gap-2">
             {navigation.map((item) => (
               <div
@@ -126,13 +169,86 @@ const Header = () => {
           </div>
         </nav>
         <Button
-          className="ml-auto lg:hidden"
+          className="ml-auto flex items-center justify-center lg:hidden"
           px="px-3"
           onClick={toggleNavigation}
+          aria-label="Open navigation menu"
         >
           <MenuSvg openNavigation={openNavigation} />
         </Button>
       </div>
+      {/* Mobile Navigation Overlay */}
+      {openNavigation && (
+        <div
+          ref={overlayRef}
+          className={`
+            fixed inset-0 z-[9999] flex items-center justify-center
+            bg-black/70 backdrop-blur-2xl
+            lg:hidden
+          `}
+          style={{
+            background: "rgba(24,28,40,0.85)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+          }}
+        >
+          {/* Close (X) Button */}
+          <button
+            onClick={handleClick}
+            className="absolute top-6 right-6 text-white text-4xl p-2 rounded-full hover:bg-white/10 transition"
+            aria-label="Close navigation"
+            style={{ zIndex: 10000 }}
+          >
+            &times;
+          </button>
+          <nav className="flex flex-col items-center justify-center gap-8 w-full">
+            {navigation.map((item, i) => (
+              <div key={item.id} className="w-full flex flex-col items-center">
+                <button
+                  ref={el => (navLinksRef.current[i] = el)}
+                  type="button"
+                  onClick={() => {
+                    if (item.dropdown) {
+                      setActiveDropdown(activeDropdown === item.id ? null : item.id);
+                    } else {
+                      handleClick();
+                      window.location.href = item.url;
+                    }
+                  }}
+                  className="
+                    block font-anta font-bold text-2xl tracking-wider uppercase
+                    text-white hover:text-[#7f9cf5] px-6 py-3 rounded-xl
+                    transition-all duration-200 text-center w-full
+                  "
+                  style={{ fontFamily: "'Anta', sans-serif" }}
+                >
+                  {item.title}
+                </button>
+                {/* Dropdown for mobile, only show if active */}
+                {item.dropdown && activeDropdown === item.id && (
+                  <div className="flex flex-col items-center w-full mt-2">
+                    {item.dropdown.map((dropItem, idx) => (
+                      <a
+                        key={idx}
+                        href={dropItem.url}
+                        onClick={handleClick}
+                        className="
+                          block font-anta text-lg tracking-wide
+                          text-white/90 hover:text-[#7f9cf5] px-6 py-2 rounded-lg
+                          transition-all duration-200 text-center w-full
+                        "
+                        style={{ fontFamily: "'Anta', sans-serif" }}
+                      >
+                        {dropItem.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      )}
     </div>
   );
 };

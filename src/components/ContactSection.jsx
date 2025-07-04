@@ -19,40 +19,40 @@ const ContactSection = () => (
           background: "transparent"
         }}
       >
-        <img src="/hi.png" alt="Robot" className="w-96 h-96 object-contain" />
+        <img src="/hi.png" alt="Robot" className="w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 object-contain" />
       </div>
       {/* Right Large Box: Contact Person */}
       <div
-        className="relative flex flex-col items-center justify-center min-h-[320px] rounded-3xl shadow-xl p-8 border-4 border-[#7f9cf5] bg-black/60"
+        className="relative flex flex-col items-center justify-center min-h-[320px] rounded-3xl shadow-xl p-4 sm:p-8 border-4 border-[#7f9cf5] bg-black/60"
       >
         {/* Large profile image */}
         <div
-          className="w-44 h-44 rounded-full absolute -top-24 left-1/2 -translate-x-1/2 bg-white flex items-center justify-center text-7xl border-4 border-[#7f9cf5]"
+          className="w-32 h-32 sm:w-44 sm:h-44 rounded-full absolute -top-16 sm:-top-24 left-1/2 -translate-x-1/2 bg-white flex items-center justify-center text-5xl sm:text-7xl border-4 border-[#7f9cf5]"
         >
           <FaUserTie className="text-[#7f9cf5]" />
         </div>
-        <div className="mt-32 w-full flex flex-col items-center">
-          <div className="flex items-center gap-2 mb-2 text-white text-2xl font-bold">
+        <div className="mt-24 sm:mt-32 w-full flex flex-col items-center">
+          <div className="flex items-center gap-2 mb-2 text-white text-lg sm:text-2xl font-bold justify-center">
             <FaUserTie className="text-[#7f9cf5]" />
             Dr. Pradeep Gajanayake
           </div>
-          <div className="flex items-center gap-2 mb-2 text-white/80 text-lg">
+          <div className="flex items-center gap-2 mb-2 text-white/80 text-base sm:text-lg justify-center">
             <HiOutlineOfficeBuilding className="text-[#a78bfa]" />
             Conference Manager
           </div>
-          <div className="flex items-center gap-2 mb-2 text-white/80 text-lg">
+          <div className="flex items-center gap-2 mb-2 text-white/80 text-base sm:text-lg justify-center">
             <FaPhoneAlt className="text-[#7f9cf5]" />
             +94 77 152 2444
           </div>
-          <div className="flex items-center gap-2 mb-2 text-white/80 text-lg">
+          <div className="flex items-center gap-2 mb-2 text-white/80 text-base sm:text-lg justify-center">
             <FaEnvelope className="text-[#a78bfa]" />
             manager@colomboconference.org
           </div>
-          <div className="flex items-center gap-2 mb-2 text-white/80 text-lg">
+          <div className="flex items-center gap-2 mb-2 text-white/80 text-base sm:text-lg justify-center">
             <MdAlternateEmail className="text-[#7f9cf5]" />
             manager@aiconference.org
           </div>
-          <div className="flex items-center gap-2 mt-2 text-white/70 text-base">
+          <div className="flex items-center gap-2 mt-2 text-white/70 text-sm sm:text-base justify-center">
             <FaBuilding className="text-[#a78bfa]" />
             Venue: gapHQ
           </div>

@@ -132,19 +132,12 @@ const OrganizingCommittee = () => {
         >
           The AI Conference Co-Chairs
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl mb-16 px-2">
           {committee.map((person, idx) => (
             <div
               key={person.name + idx}
               ref={el => (committeeRefs.current[idx] = el)}
-              className="group relative flex items-end bg-[#181c28]/80 border-2 border-black rounded-2xl overflow-hidden transition-all duration-300 w-full"
-              style={{
-                minWidth: 0,
-                height: BOX_HEIGHT,
-                maxHeight: BOX_HEIGHT,
-                minHeight: BOX_HEIGHT,
-                maxWidth: 270,
-              }}
+              className="group relative flex items-end bg-[#181c28]/80 border-2 border-black rounded-2xl overflow-hidden transition-all duration-300 w-full max-w-xs mx-auto aspect-[3/4]"
             >
               <img
                 src={person.img}
@@ -164,9 +157,9 @@ const OrganizingCommittee = () => {
                 }}
               />
               {/* Text on image, always at bottom */}
-              <div className="relative z-10 w-full p-4 flex flex-col items-center justify-end">
-                <div className="text-white text-lg font-bold text-center" style={{ fontFamily: "'Anta', sans-serif" }}>{person.name}</div>
-                <div className="text-[#7f9cf5] text-sm text-center mt-2" style={{ fontFamily: "'Anta', sans-serif" }}>{person.title}</div>
+              <div className="relative z-10 w-full p-3 flex flex-col items-center justify-end">
+                <div className="text-white text-base sm:text-lg font-bold text-center" style={{ fontFamily: "'Anta', sans-serif" }}>{person.name}</div>
+                <div className="text-[#7f9cf5] text-xs sm:text-sm text-center mt-2" style={{ fontFamily: "'Anta', sans-serif" }}>{person.title}</div>
               </div>
             </div>
           ))}
@@ -176,17 +169,11 @@ const OrganizingCommittee = () => {
         <h2 className="text-white text-3xl md:text-5xl font-extrabold text-center drop-shadow-lg mb-8 mt-8" style={{ fontFamily: "'Anta', sans-serif" }}>
           Scientific Committee
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6 w-full max-w-5xl mb-8 px-2">
           {scientificCommittee.map((member, idx) => (
             <div
               key={member.name + idx}
-              className="relative flex items-end bg-[#181c28]/80 border-2 border-black rounded-2xl overflow-hidden w-full transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
-              style={{
-                height: BOX_HEIGHT,
-                maxHeight: BOX_HEIGHT,
-                minHeight: BOX_HEIGHT,
-                maxWidth: 270,
-              }}
+              className="relative flex items-end bg-[#181c28]/80 border-2 border-black rounded-2xl overflow-hidden w-full max-w-xs mx-auto aspect-[3/4] transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
             >
               <img
                 src={member.img}
@@ -206,8 +193,8 @@ const OrganizingCommittee = () => {
                 }}
               />
               {/* Text on image, always at bottom */}
-              <div className="relative z-10 w-full p-4 flex flex-col items-center justify-end">
-                <div className="text-white text-base font-bold text-center" style={{ fontFamily: "'Anta', sans-serif" }}>{member.name}</div>
+              <div className="relative z-10 w-full p-3 flex flex-col items-center justify-end">
+                <div className="text-white text-xs sm:text-base font-bold text-center" style={{ fontFamily: "'Anta', sans-serif" }}>{member.name}</div>
               </div>
             </div>
           ))}

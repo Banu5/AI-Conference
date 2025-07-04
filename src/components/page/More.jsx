@@ -78,14 +78,14 @@ const More = () => {
           {/* Darker, wider left gradient overlay */}
           <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/90 via-black/70 to-transparent to-60%" />
           {/* Text on left, more padding */}
-          <div className="absolute z-20 top-0 left-0 h-full flex flex-col justify-center pl-24 md:pl-40 max-w-2xl">
-            <h1 className="text-white text-4xl md:text-6xl font-extrabold mb-4" style={{ fontFamily: "'Anta', sans-serif" }}>
+          <div className="absolute z-20 top-0 left-0 h-full flex flex-col justify-center px-4 sm:pl-10 md:pl-24 lg:pl-40 max-w-full sm:max-w-2xl">
+            <h1 className="text-white text-2xl sm:text-4xl md:text-6xl font-extrabold mb-4" style={{ fontFamily: "'Anta', sans-serif" }}>
               Venue of the AIMDA 2026<br />
               <a
                 href="https://maps.google.com/?q=gapHQ, 120/10A, Vidya Mawatha, Colombo 07, Sri Lanka"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 px-4 py-1.5 rounded-xl border-[1.5px] bg-black text-lg md:text-xl text-white transition-all duration-300 shadow-lg
+                className="inline-block mt-4 px-4 py-1.5 rounded-xl border-[1.5px] bg-black text-base sm:text-lg md:text-xl text-white transition-all duration-300 shadow-lg
                   hover:scale-105 hover:text-[#7f9cf5]"
                 style={{
                   borderImage: "linear-gradient(90deg, #7f9cf5, #a78bfa, #2d1e5a) 1",
@@ -99,7 +99,7 @@ const More = () => {
                 See Location
               </a>
             </h1>
-            <p className="text-white/90 text-lg md:text-2xl max-w-xl mt-4">
+            <p className="text-white/90 text-base sm:text-lg md:text-2xl max-w-xl mt-2 sm:mt-4">
               Nested in the heart of Colombo 07, our elite location has ample parking and is a mere walking distance to historical landmarks, restaurants, coffee shops, transport networks, and is close to many major scientific and professional organizations
             </p>
           </div>
@@ -117,9 +117,9 @@ const More = () => {
         </div>
 
         {/* New Section: Image left, MissionBox right */}
-        <div className="w-full flex flex-col md:flex-row items-stretch justify-center gap-8 px-4 md:px-24 py-16">
+        <div className="w-full flex flex-col md:flex-row items-stretch justify-center gap-6 sm:gap-8 px-2 sm:px-4 md:px-24 py-8 sm:py-12 md:py-16">
           {/* Left: Sliding Image */}
-          <div className="relative min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden flex-1">
+          <div className="relative min-h-[18rem] sm:min-h-[28rem] md:min-h-[39rem] border border-n-1/10 rounded-3xl overflow-hidden flex-1 mb-6 md:mb-0">
             <img
               src={missionImages[missionCurrent]}
               alt={`Mission Slide ${missionCurrent + 1}`}
@@ -127,7 +127,9 @@ const More = () => {
             />
           </div>
           {/* Right: Mission Box */}
-          <MissionBox />
+          <div className="flex-1">
+            <MissionBox />
+          </div>
         </div>
 
         {/* Contact Section */}

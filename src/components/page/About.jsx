@@ -248,36 +248,28 @@ const About = () => {
 			<div className="relative z-10 flex flex-col min-h-screen -mt-[1200px] pt-24">
 				<Header />
 				<main className="flex-1 w-full pt-10" id="about-svg-anim">
-					<h1
-						className="text-white text-4xl md:text-6xl font-extrabold font-anta mb-16 pr-12 text-right"
-						style={{ fontFamily: "'Anta', sans-serif" }}
-						ref={titleRef}
-					>
-						
-					</h1>
-
 					{/* Alternating sections */}
-					<div className="relative flex flex-col gap-32 max-w-6xl mx-auto">
+					<div className="relative flex flex-col gap-24 max-w-6xl mx-auto px-4 sm:px-6">
 						{aboutSections.map((sec, idx) => (
 							<div
 								key={idx}
 								ref={(el) => (sectionRefs.current[idx] = el)}
-								className={`flex flex-col md:flex-row items-center gap-12 ${
-									sec.imgLeft ? "" : "md:flex-row-reverse"
+								className={`flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 ${
+									sec.imgLeft ? "md:flex-row" : "md:flex-row-reverse"
 								}`}
 							>
-								<div className="w-full md:w-1/2 flex justify-center">
+								<div className="w-full md:w-1/2 flex justify-center mb-6 md:mb-0">
 									<img
 										src={sec.img}
 										alt={sec.alt}
-										className="rounded-3xl shadow-2xl w-full max-w-md object-cover"
-										style={{ minHeight: 320, maxHeight: 400 }}
+										className="rounded-3xl shadow-2xl w-full max-w-xs sm:max-w-md object-cover"
+										style={{ minHeight: 200, maxHeight: 350 }}
 									/>
 								</div>
 								<div className="w-full md:w-1/2 flex justify-center">
-									<p className="text-white/90 text-base md:text-lg leading-relaxed max-w-4xl mx-auto text-justify">
-  {sec.text}
-</p>
+									<p className="text-white/90 text-base md:text-lg leading-relaxed max-w-xl mx-auto text-justify">
+										{sec.text}
+									</p>
 								</div>
 							</div>
 						))}
@@ -286,17 +278,16 @@ const About = () => {
 				
 				{/* MARC Section */}
 				<div
-					className="relative w-full min-h-[60vh] flex items-center justify-center my-24"
+					className="relative w-full min-h-[60vh] flex items-center justify-center my-16 sm:my-24 px-4"
 					style={{
 						backgroundImage: "url('/bg3.jpg')",
 						backgroundSize: "cover",
 						backgroundPosition: "center",
 					}}
 				>
-					{/* Overlay for darkening the image */}
 					<div className="absolute inset-0 bg-black/70"></div>
-					<div className="relative z-10 max-w-3xl mx-auto px-6 py-16 text-center flex flex-col items-center">
-						<h2 className="text-3xl md:text-5xl font-extrabold font-anta text-[#7f9cf5] mb-6" style={{ fontFamily: "'Anta', sans-serif" }}>
+					<div className="relative z-10 max-w-3xl mx-auto px-4 py-10 sm:py-16 text-center flex flex-col items-center">
+						<h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold font-anta text-[#7f9cf5] mb-6" style={{ fontFamily: "'Anta', sans-serif" }}>
 							Multidisciplinary AI Research Centre - MARC
 						</h2>
 						<p className="text-white/90 text-base md:text-lg leading-relaxed max-w-4xl mx-auto text-justify">

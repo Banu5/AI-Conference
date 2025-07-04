@@ -5,6 +5,10 @@ import Heading from "./Heading";
 import Section from "./Section";
 import { grid } from "../assets";
 import { Gradient } from "./design/Roadmap";
+import image1 from "../assets/roadmap/image-1.png";
+import image2 from "../assets/roadmap/image-2.png";
+import image3 from "../assets/roadmap/image-3.png";
+import image4 from "../assets/roadmap/image-4.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +18,7 @@ const roadmap = [
 		title: "Engineering, Technology & Infrastructure",
 		text: "Covers intelligent systems, robotics, and automation; AI applications in smart infrastructure and sustainability; and machine learning across edge, cloud, and IoT technologies for building connected environments.",
 		date: "2026",
-		imageUrl: "/src/assets/roadmap/image-2.png",
+		imageUrl: image2,
 		colorful: true,
 	},
 	{
@@ -22,21 +26,21 @@ const roadmap = [
 		title: "Health, Agriculture & Environment",
 		text: "Focuses on AI in life sciences and AgriTech, including precision farming and disease prediction; digital health and precision medicine; and AI-driven climate resilience and environmental monitoring.",
 		date: "2026",
-		imageUrl: "/src/assets/roadmap/image-1.png",
+		imageUrl: image1,
 	},
 	{
 		id: "4",
 		title: "Humanities, Society & Education",
 		text: "Explores AI for social good through ethics, equity, and policy; its role in arts, culture, and creative industries; and how AI transforms education via personalized learning and accessibility.",
 		date: "2026",
-		imageUrl: "/src/assets/roadmap/image-4.png",
+		imageUrl: image4,
 	},
 	{
 		id: "5",
 		title: "Risk, Disaster & Resilience",
 		text: "Highlights AI for emergency response and risk mitigation; its use in addressing global sustainability challenges; and enhancing resilience across communities and ecosystems.",
 		date: "2026",
-		imageUrl: "/src/assets/roadmap/image-3.png",
+		imageUrl: image3,
 	},
 ];
 

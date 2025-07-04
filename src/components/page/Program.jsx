@@ -110,14 +110,14 @@ const Program = () => {
       </div>
 
       {/* Section 2: Two Large Portrait Images with Animation */}
-      <div className="relative w-full flex flex-col md:flex-row items-center justify-center gap-12 py-24">
+      <div className="relative w-full flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-10 md:gap-12 py-10 sm:py-16 md:py-24">
         {/* Left Image */}
         <div
           ref={leftRef}
-          className="w-[90vw] max-w-[400px] h-[600px] md:w-[400px] md:h-[600px] bg-white/10 border-2 border-[#7f9cf5] rounded-3xl shadow-xl overflow-hidden flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          className="w-[90vw] max-w-[320px] sm:max-w-[360px] md:max-w-[400px] h-[400px] sm:h-[420px] md:w-[400px] md:h-[600px] bg-white/10 border-2 border-[#7f9cf5] rounded-3xl shadow-xl overflow-hidden flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style={{
-            minHeight: 500,
-            minWidth: 280,
+            minHeight: 220,
+            minWidth: 160,
             cursor: "pointer",
           }}
         >
@@ -130,10 +130,10 @@ const Program = () => {
         {/* Right Image */}
         <div
           ref={rightRef}
-          className="w-[90vw] max-w-[400px] h-[600px] md:w-[400px] md:h-[600px] bg-white/10 border-2 border-[#7f9cf5] rounded-3xl shadow-xl overflow-hidden flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+          className="w-[90vw] max-w-[320px] sm:max-w-[360px] md:max-w-[400px] h-[400px] sm:h-[420px] md:w-[400px] md:h-[600px] bg-white/10 border-2 border-[#7f9cf5] rounded-3xl shadow-xl overflow-hidden flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style={{
-            minHeight: 500,
-            minWidth: 280,
+            minHeight: 220,
+            minWidth: 160,
             cursor: "pointer",
           }}
         >
