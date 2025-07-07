@@ -34,9 +34,9 @@ const Collaboration = () => {
 
   return (
     <Section crosses>
-      <div className="container flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
-        {/* Left Box with background image and dark overlay */}
-        <div className="flex-1 flex flex-col justify-between relative rounded-3xl border border-[#7f9cf5]/40 shadow-lg min-h-[36rem] overflow-hidden">
+      <div className="container flex flex-col md:flex-row gap-4 md:gap-8 items-stretch">
+        {/* Left Box */}
+        <div className="w-full md:w-1/2 flex flex-col justify-between relative rounded-3xl border border-[#7f9cf5]/40 shadow-lg min-h-[22rem] md:min-h-[36rem] overflow-hidden mb-4 md:mb-0">
           {/* Background image */}
           <img
             src="/bg4.jpg"
@@ -46,7 +46,7 @@ const Collaboration = () => {
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/60 z-10" />
           {/* Content */}
-          <div className="relative z-20 flex flex-col h-full p-8">
+          <div className="relative z-20 flex flex-col h-full p-4 md:p-8">
             <h2
               className="h1 mb-4 font-anta"
               style={{ fontFamily: "'Anta', sans-serif" }}
@@ -54,7 +54,7 @@ const Collaboration = () => {
               Welcome to AIMDA
             </h2>
             <div className="flex-1 flex items-center">
-              <p className="mb-0 text-lg md:text-xl font-normal text-white/90 leading-relaxed text-justify">
+              <p className="mb-0 text-base md:text-xl font-normal text-white/90 leading-relaxed text-justify">
                 AIMDA 2026 is an international conference organized by the
                 Multidisciplinary AI Research Centre (MARC) of the University of
                 Peradeniya and gapHQ, dedicated to showcasing the transformative
@@ -65,7 +65,7 @@ const Collaboration = () => {
                 for global impact.
               </p>
             </div>
-            <div className="flex justify-end mt-8">
+            <div className="flex justify-end mt-6">
               <Link to="/about">
                 <Button className="px-8 py-4 text-lg md:text-xl font-bold">
                   About us
@@ -76,13 +76,13 @@ const Collaboration = () => {
         </div>
 
         {/* Right Side: Two stacked boxes */}
-        <div className="flex flex-col flex-1 gap-6 md:gap-8">
+        <div className="w-full md:w-1/2 flex flex-col gap-4 md:gap-8 justify-between">
           {/* Top: Countdown */}
-          <div className="flex-1 bg-transparent border border-[#7f9cf5]/40 rounded-3xl shadow-lg flex items-center justify-center min-h-[12rem]">
+          <div className="flex-1 bg-transparent border border-[#7f9cf5]/40 rounded-3xl shadow-lg flex items-center justify-center min-h-[8rem] md:min-h-[12rem]">
             <Countdown />
           </div>
-          {/* Bottom: Video instead of photo, no parallax */}
-          <div className="flex-1 bg-transparent border border-[#7f9cf5]/40 rounded-3xl shadow-lg overflow-hidden relative min-h-[12rem] flex items-center justify-center">
+          {/* Bottom: Video */}
+          <div className="flex-1 bg-transparent border border-[#7f9cf5]/40 rounded-3xl shadow-lg overflow-hidden relative min-h-[8rem] md:min-h-[12rem] flex items-center justify-center">
             <video
               src="/logos.mp4"
               className="w-full h-full object-cover rounded-3xl"

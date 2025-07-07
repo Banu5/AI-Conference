@@ -2,11 +2,11 @@ import React from "react";
 
 // Example brand images (replace with your own)
 const brands = [
-  { name: "BrandOne", img: "/logo1.png" },
-  { name: "BrandTwo", img: "/logo2.png" },
-  { name: "BrandThree", img: "/logo3.png" },
+  { name: "BrandOne", img: "/l1.png" },
+  { name: "BrandTwo", img: "/l2.png" },
+  { name: "BrandThree", img: "/l3.png" },
 ];
-
+  
 // Helper to create repeated sets with gap after each set
 const setsToShow = 4; // Increase for smoother infinite loop
 const brandSets = Array(setsToShow)

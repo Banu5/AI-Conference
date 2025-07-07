@@ -64,15 +64,15 @@ const Countdown = () => {
   return (
     <div
       ref={countdownRef}
-      className="flex items-end justify-center gap-3 md:gap-6 w-full"
+      className="flex items-center justify-center gap-2 md:gap-6 w-full h-full"
       style={{
         padding: 0,
       }}
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         <span
           ref={boxRefs.days}
-          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          className="font-extrabold text-[2rem] xs:text-[2.5rem] sm:text-[3rem] md:text-[5rem] leading-none tracking-tight text-white"
           style={{
             fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
             fontWeight: 700,
@@ -82,7 +82,7 @@ const Countdown = () => {
         >
           {timeLeft.days}
         </span>
-        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+        <span className="text-[0.7rem] md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
           Days
         </span>
       </div>
@@ -90,19 +90,19 @@ const Countdown = () => {
         className="mx-1 md:mx-2 select-none flex items-center"
         style={{
           lineHeight: 1,
-          height: "4.5rem",
+          height: "2.2rem",
           color: "white",
           fontWeight: 800,
-          fontSize: "2.5rem",
+          fontSize: "2rem",
           alignSelf: "center",
         }}
       >
         |
       </span>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         <span
           ref={boxRefs.hours}
-          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          className="font-extrabold text-[2rem] xs:text-[2.5rem] sm:text-[3rem] md:text-[5rem] leading-none tracking-tight text-white"
           style={{
             fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
             fontWeight: 700,
@@ -112,7 +112,7 @@ const Countdown = () => {
         >
           {timeLeft.hours}
         </span>
-        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+        <span className="text-[0.7rem] md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
           Hours
         </span>
       </div>
@@ -120,19 +120,19 @@ const Countdown = () => {
         className="mx-1 md:mx-2 select-none flex items-center"
         style={{
           lineHeight: 1,
-          height: "4.5rem",
+          height: "2.2rem",
           color: "white",
           fontWeight: 800,
-          fontSize: "2.5rem",
+          fontSize: "2rem",
           alignSelf: "center",
         }}
       >
         |
       </span>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         <span
           ref={boxRefs.minutes}
-          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          className="font-extrabold text-[2rem] xs:text-[2.5rem] sm:text-[3rem] md:text-[5rem] leading-none tracking-tight text-white"
           style={{
             fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
             fontWeight: 700,
@@ -142,7 +142,7 @@ const Countdown = () => {
         >
           {timeLeft.minutes}
         </span>
-        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+        <span className="text-[0.7rem] md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
           Minutes
         </span>
       </div>
@@ -150,19 +150,19 @@ const Countdown = () => {
         className="mx-1 md:mx-2 select-none flex items-center"
         style={{
           lineHeight: 1,
-          height: "4.5rem",
+          height: "2.2rem",
           color: "white",
           fontWeight: 800,
-          fontSize: "2.5rem",
+          fontSize: "2rem",
           alignSelf: "center",
         }}
       >
         |
       </span>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
         <span
           ref={boxRefs.seconds}
-          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          className="font-extrabold text-[2rem] xs:text-[2.5rem] sm:text-[3rem] md:text-[5rem] leading-none tracking-tight text-white"
           style={{
             fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
             fontWeight: 700,
@@ -172,7 +172,7 @@ const Countdown = () => {
         >
           {timeLeft.seconds}
         </span>
-        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+        <span className="text-[0.7rem] md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
           Seconds
         </span>
       </div>
