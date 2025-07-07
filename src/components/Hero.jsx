@@ -52,14 +52,15 @@ const Hero = () => {
                 <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
 
                 <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
-                  <img
-                    src={robot}
-                    className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[10%] lg:-translate-y-[23%]"
-                    width={1024}
-                    height={490}
-                    alt="AI"
+                  <video
+                    className="w-full h-full object-cover"
+                    src="/abtvid.mp4" // Use your video file here
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    poster="/robot.jpg" // Optional: fallback image before video loads
                   />
-
                   <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
 
                   <ScrollParallax isAbsolutelyPositioned>

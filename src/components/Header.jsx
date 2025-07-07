@@ -5,7 +5,7 @@ import { navigation } from "../constants";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
 import { HamburgerMenu } from "./design/Header";
-import { useRef, useEffect, useState } from "react";
+ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 
 const Header = () => {

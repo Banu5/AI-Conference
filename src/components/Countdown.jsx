@@ -52,64 +52,6 @@ const Countdown = () => {
       const minutes = pad(Math.floor((diff / (1000 * 60)) % 60));
       const seconds = pad(Math.floor((diff / 1000) % 60));
 
-      // Animate only the box that changed
-      if (boxRefs.seconds.current && seconds !== timeLeft.seconds) {
-        gsap.fromTo(
-          boxRefs.seconds.current,
-          { scale: 1, boxShadow: "0 0 0 0 #7f9cf5" },
-          {
-            scale: 1.15,
-            boxShadow: "0 0 16px 2px #7f9cf5",
-            duration: 0.18,
-            yoyo: true,
-            repeat: 1,
-            ease: "power2.inOut",
-          }
-        );
-      }
-      if (boxRefs.minutes.current && minutes !== timeLeft.minutes) {
-        gsap.fromTo(
-          boxRefs.minutes.current,
-          { scale: 1, boxShadow: "0 0 0 0 #7f9cf5" },
-          {
-            scale: 1.12,
-            boxShadow: "0 0 12px 2px #7f9cf5",
-            duration: 0.18,
-            yoyo: true,
-            repeat: 1,
-            ease: "power2.inOut",
-          }
-        );
-      }
-      if (boxRefs.hours.current && hours !== timeLeft.hours) {
-        gsap.fromTo(
-          boxRefs.hours.current,
-          { scale: 1, boxShadow: "0 0 0 0 #7f9cf5" },
-          {
-            scale: 1.10,
-            boxShadow: "0 0 10px 2px #7f9cf5",
-            duration: 0.18,
-            yoyo: true,
-            repeat: 1,
-            ease: "power2.inOut",
-          }
-        );
-      }
-      if (boxRefs.days.current && days !== timeLeft.days) {
-        gsap.fromTo(
-          boxRefs.days.current,
-          { scale: 1, boxShadow: "0 0 0 0 #7f9cf5" },
-          {
-            scale: 1.08,
-            boxShadow: "0 0 8px 2px #7f9cf5",
-            duration: 0.18,
-            yoyo: true,
-            repeat: 1,
-            ease: "power2.inOut",
-          }
-        );
-      }
-
       setTimeLeft({ days, hours, minutes, seconds });
     };
 
@@ -117,50 +59,122 @@ const Countdown = () => {
     const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
     // eslint-disable-next-line
-  }, [timeLeft]);
-
-  const boxClass =
-    "flex flex-col items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[#232b4e] to-[#1a1a32] border border-n-6 rounded-2xl shadow-2xl text-white text-2xl md:text-3xl font-extrabold backdrop-blur-lg transition-all duration-200";
-  const labelClass =
-    "text-[0.65rem] md:text-xs font-semibold mt-1 uppercase tracking-wider";
-  const sepClass =
-    "flex items-center justify-center text-2xl md:text-3xl font-extrabold text-white mx-1 md:mx-2 select-none";
+  }, []);
 
   return (
     <div
       ref={countdownRef}
-      className="flex items-center z-30"
+      className="flex items-end justify-center gap-3 md:gap-6 w-full"
       style={{
-        background: "rgba(20,24,40,0.7)",
-        borderRadius: "2rem",
-        padding: "1.2rem 2.5rem",
-        boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
-        backdropFilter: "blur(10px)",
+        padding: 0,
       }}
     >
-      <div ref={boxRefs.days} className={boxClass}>
-        {timeLeft.days}
+      <div className="flex flex-col items-center">
         <span
-          className={labelClass}
-          style={{ fontFamily: "'Anta', sans-serif" }}
+          ref={boxRefs.days}
+          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          style={{
+            fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
+            fontWeight: 700,
+            letterSpacing: "-0.04em",
+            lineHeight: 1,
+          }}
         >
+          {timeLeft.days}
+        </span>
+        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
           Days
         </span>
       </div>
-      <span className={sepClass}>:</span>
-      <div ref={boxRefs.hours} className={boxClass}>
-        {timeLeft.hours}
-        <span className={labelClass}>Hours</span>
+      <span
+        className="mx-1 md:mx-2 select-none flex items-center"
+        style={{
+          lineHeight: 1,
+          height: "4.5rem",
+          color: "white",
+          fontWeight: 800,
+          fontSize: "2.5rem",
+          alignSelf: "center",
+        }}
+      >
+        |
+      </span>
+      <div className="flex flex-col items-center">
+        <span
+          ref={boxRefs.hours}
+          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          style={{
+            fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
+            fontWeight: 700,
+            letterSpacing: "-0.04em",
+            lineHeight: 1,
+          }}
+        >
+          {timeLeft.hours}
+        </span>
+        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+          Hours
+        </span>
       </div>
-      <span className={sepClass}>:</span>
-      <div ref={boxRefs.minutes} className={boxClass}>
-        {timeLeft.minutes}
-        <span className={labelClass}>Minutes</span>
+      <span
+        className="mx-1 md:mx-2 select-none flex items-center"
+        style={{
+          lineHeight: 1,
+          height: "4.5rem",
+          color: "white",
+          fontWeight: 800,
+          fontSize: "2.5rem",
+          alignSelf: "center",
+        }}
+      >
+        |
+      </span>
+      <div className="flex flex-col items-center">
+        <span
+          ref={boxRefs.minutes}
+          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          style={{
+            fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
+            fontWeight: 700,
+            letterSpacing: "-0.04em",
+            lineHeight: 1,
+          }}
+        >
+          {timeLeft.minutes}
+        </span>
+        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+          Minutes
+        </span>
       </div>
-      <span className={sepClass}>:</span>
-      <div ref={boxRefs.seconds} className={boxClass}>
-        {timeLeft.seconds}
-        <span className={labelClass}>Seconds</span>
+      <span
+        className="mx-1 md:mx-2 select-none flex items-center"
+        style={{
+          lineHeight: 1,
+          height: "4.5rem",
+          color: "white",
+          fontWeight: 800,
+          fontSize: "2.5rem",
+          alignSelf: "center",
+        }}
+      >
+        |
+      </span>
+      <div className="flex flex-col items-center">
+        <span
+          ref={boxRefs.seconds}
+          className="font-extrabold text-[3.5rem] md:text-[5rem] leading-none tracking-tight text-white"
+          style={{
+            fontFamily: "'Oswald', 'Bebas Neue', 'Barlow Condensed', Arial, sans-serif",
+            fontWeight: 700,
+            letterSpacing: "-0.04em",
+            lineHeight: 1,
+          }}
+        >
+          {timeLeft.seconds}
+        </span>
+        <span className="text-xs md:text-sm font-semibold mt-1 uppercase tracking-wider text-white/70">
+          Seconds
+        </span>
       </div>
     </div>
   );

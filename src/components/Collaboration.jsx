@@ -4,50 +4,94 @@ import Section from "./Section";
 import { LeftCurve, RightCurve } from "./design/Collaboration";
 import Countdown from "./Countdown";
 import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const Collaboration = () => {
+  const parallaxImgRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (parallaxImgRef.current) {
+        const rect = parallaxImgRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        // Calculate parallax: move image up to 40px as it enters viewport
+        const offset = Math.min(
+          Math.max((windowHeight - rect.top) / windowHeight, 0),
+          1
+        );
+        gsap.to(parallaxImgRef.current, {
+          y: offset * 40 - 20, // -20px to +20px
+          ease: "power1.out",
+          duration: 0.5,
+        });
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Section crosses>
-      <div className="container lg:flex relative">
-        {/* Countdown absolutely at the very top right */}
-        <div className="absolute top-0 right-0 mt-2 mr-2 z-30">
-          <Countdown />
-        </div>
-
-        <div className="max-w-[35rem]">
-          <h2
-            className="h1 mb-4 md:mb-28 -mt-20 font-anta"
-            style={{ fontFamily: "'Anta', sans-serif" }}
-          >
-            Welcome to AIMDA 
-          </h2>
-
-          <ul className="max-w-[35rem] mb-10 md:mb-14">
-            <li className="mb-3 py-3 flex items-start">
-              <img src={check} width={24} height={24} alt="check" className="mt-1" />
-              <p className="ml-5 text-lg md:text-xl font-normal text-white/90 leading-relaxed">
-                AIMDA 2026 is an international conference organized by the Multidisciplinary AI Research Centre (MARC) of the University of Peradeniya and gapHQ, dedicated to showcasing the transformative role of Artificial Intelligence across diverse sectors. Hosted by gapHQ, Colombo, the conference brings together global experts from academia, industry, and policy to explore real-world AI applications and foster responsible, multidisciplinary innovation for global impact.
+      <div className="container flex flex-col md:flex-row gap-6 md:gap-8 items-stretch">
+        {/* Left Box with background image and dark overlay */}
+        <div className="flex-1 flex flex-col justify-between relative rounded-3xl border border-[#7f9cf5]/40 shadow-lg min-h-[36rem] overflow-hidden">
+          {/* Background image */}
+          <img
+            src="/bg4.jpg"
+            alt="Background"
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          {/* Content */}
+          <div className="relative z-20 flex flex-col h-full p-8">
+            <h2
+              className="h1 mb-4 font-anta"
+              style={{ fontFamily: "'Anta', sans-serif" }}
+            >
+              Welcome to AIMDA
+            </h2>
+            <div className="flex-1 flex items-center">
+              <p className="mb-0 text-lg md:text-xl font-normal text-white/90 leading-relaxed text-justify">
+                AIMDA 2026 is an international conference organized by the
+                Multidisciplinary AI Research Centre (MARC) of the University of
+                Peradeniya and gapHQ, dedicated to showcasing the transformative
+                role of Artificial Intelligence across diverse sectors. Hosted by
+                gapHQ, Colombo, the conference brings together global experts
+                from academia, industry, and policy to explore real-world AI
+                applications and foster responsible, multidisciplinary innovation
+                for global impact.
               </p>
-            </li>
-          </ul>
-
-          <Link to="/about">
-            <Button>About us</Button>
-          </Link>
+            </div>
+            <div className="flex justify-end mt-8">
+              <Link to="/about">
+                <Button className="px-8 py-4 text-lg md:text-xl font-bold">
+                  About us
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
 
-        {/* Right side: Larger video, more to right and bottom, with visible curves */}
-        <div className="relative lg:ml-auto xl:w-[50rem] mt-4 flex items-end justify-center min-h-[26rem]">
-          <LeftCurve />
-          <RightCurve />
-          <div className="absolute right-[-2rem] bottom-[-6rem] w-[46rem] aspect-[16/9] rounded-3xl overflow-hidden shadow-lg border border-n-6 bg-n-8 flex items-center justify-center z-10">
+        {/* Right Side: Two stacked boxes */}
+        <div className="flex flex-col flex-1 gap-6 md:gap-8">
+          {/* Top: Countdown */}
+          <div className="flex-1 bg-transparent border border-[#7f9cf5]/40 rounded-3xl shadow-lg flex items-center justify-center min-h-[12rem]">
+            <Countdown />
+          </div>
+          {/* Bottom: Video instead of photo, no parallax */}
+          <div className="flex-1 bg-transparent border border-[#7f9cf5]/40 rounded-3xl shadow-lg overflow-hidden relative min-h-[12rem] flex items-center justify-center">
             <video
-              className="w-full h-full object-cover"
-              src="/abtvid.mp4"
+              src="/logos.mp4"
+              className="w-full h-full object-cover rounded-3xl"
+              style={{ display: "block" }}
               autoPlay
               loop
               muted
               playsInline
+              poster="/about-video-poster.jpg"
             />
           </div>
         </div>
